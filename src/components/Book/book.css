@@ -1,0 +1,292 @@
+ /* BOOK BINDINGS */
+ .book-bg {
+    overflow: hidden;
+    height: 32rem;
+    margin: 2px;
+    cursor: pointer;
+    transition: margin 0.3s ease-in-out, box-shadow 0.3s ease-in-out,
+      transform 0.3s ease-in-out;
+    filter: grayscale(25%);
+    border-radius: 4px;
+    background: grey;
+    box-shadow: 0 0.5rem 1rem 0rem rgba(0, 0, 0, 0.4);
+    border-top-style: solid;
+    border-top-width: 1px;
+    border-image: linear-gradient(
+      to right,
+      #333,
+      #333 15%,
+      antiquewhite 30%,
+      antiquewhite 70%,
+      #333 85%,
+      #333
+    );
+    border-image-slice: 1;
+    order: 200;
+  }
+  .book-bg:hover {
+    box-shadow: 0 0.5rem 3rem -0.5rem rgba(0, 0, 0, 0.4);
+    z-index: 10;
+    margin-top: -15px;
+    transform: scale(1.03, 1.03);
+  }
+  /* END BOOK BINDINGS */
+  
+  /* BOOK WIDTHS */
+  .graphic {
+    width: 6rem;
+  }
+  .data {
+    width: 5rem;
+  }
+  .photo {
+    width: 5rem;
+  }
+  .landscape {
+    width: 6rem;
+  }
+  .writing {
+    width: 4rem;
+  }
+  .web {
+    width: 5rem;
+  }
+  /* END BOOK WIDTHS */
+  
+  /* TITLE SHADOWS */
+  .book h1,
+  h2,
+  h3,
+  h4,
+  h5 {
+    text-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.8);
+  }
+  .web .book h1,
+  h3 {
+    text-shadow: 0 0 0.25rem rgba(0, 0, 0, 0.6);
+  }
+  /* END TITLE SHADOWS */
+  
+  /* DEFAULT BOOK ATTRIBUTES */
+  .book {
+    display: flex;
+    height: 100%;
+    width: 100%;
+    box-shadow: inset -0.35rem 0 0.5rem rgba(0, 0, 0, 0.4),
+      inset 0.35rem 0 0.5rem rgba(0, 0, 0, 0.4);
+    justify-content: center;
+    align-items: center;
+    writing-mode: vertical-rl;
+  }
+  .contents {
+    opacity: 0;
+  }
+  /* END DEFAULT BOOK ATTRIBUTES */
+  
+  /* GRAPHIC DESIGN */
+  .graphic .book {
+    align-items: center;
+    background: radial-gradient(
+        ellipse at top,
+        rgba(0, 0, 0, 0.35),
+        rgba(0, 0, 0, 0.75)
+      ),
+      radial-gradient(ellipse at bottom, rgba(70, 70, 70, 0.5), transparent);
+    font-family: "Unica One", cursive;
+    color: darkorange;
+  }
+  /* END GRAPHIC DESIGN */
+
+
+
+
+  
+  /* OPEN BOOK */
+  .book-bg.active {
+    box-shadow: 0 0.5rem 3rem -0.5rem rgba(0, 0, 0, 0.4);
+    position: absolute;
+    width: 61rem;
+    height: 32rem;
+    margin-top: -22px;
+    z-index: 10;
+    border-top-width: 0;
+  }
+  .contents {
+    display: flex;
+    position: absolute;
+  }
+  .book-bg.active .contents {
+    background-color: antiquewhite;
+    position: fixed;
+    opacity: 100;
+    width: calc(100% - 50px);
+    height: calc(100% - 50px);
+    border-left-style: double;
+    border-right-style: double;
+    border-left-width: 4px;
+    border-right-width: 4px;
+    border-color: rgb(92, 92, 92);
+    border-top-style: solid;
+    border-top-width: 1px;
+    border-top-color: antiquewhite;
+    border-bottom-style: groove;
+    border-bottom-color: rgb(155, 153, 153);
+    border-bottom-width: 2px;
+    color: #333;
+    writing-mode: horizontal-tb;
+    font-family: "Nothing You Could Do", cursive;
+  }
+  .page {
+    display: flex;
+    flex-direction: column;
+    width: calc(50% - 4rem);
+    height: calc(100% - 4em);
+    margin: 2rem;
+  }
+  .page h1,
+  h3 {
+    text-shadow: none;
+  }
+  .is-grid {
+    display: grid;
+    gap: 5px;
+    grid-template: "1fr 1fr 1fr" "1fr 1fr 1fr" "1fr 1fr 1fr";
+  }
+  .illus {
+    border: 5px solid white;
+    flex: 1;
+    background-size: cover;
+  }
+  .text {
+    margin: 1rem;
+  }
+  #page-shading {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+      to right,
+      rgba(30, 30, 30, 0.1),
+      transparent 25%,
+      transparent 30%,
+      rgba(30, 30, 30, 0.3) 48%,
+      rgba(30, 30, 30, 0.4) 50%,
+      transparent 50%,
+      rgba(30, 30, 30, 0.3) 70%,
+      transparent
+    );
+  }
+  .book-bg.active #book-shading {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+      to right,
+      transparent,
+      transparent 43%,
+      rgba(30, 30, 30, 0.3) 44%,
+      rgba(30, 30, 30, 0.5) 45%,
+      rgba(30, 30, 30, 0.4) 50%,
+      rgba(30, 30, 30, 0.65) 55%,
+      rgba(30, 30, 30, 0.3) 56%,
+      transparent 57%,
+      transparent
+    );
+  }
+  /* END OPEN BOOK */
+  
+  /* BACK ARROW */
+  #back svg {
+    position: absolute;
+    border: none;
+    width: 2rem;
+    right: 0.25rem;
+    top: 0.125rem;
+    z-index: 10;
+    opacity: 85%;
+    filter: drop-shadow(0px 0px 2px black);
+  }
+  #back svg:hover {
+    opacity: 100%;
+    filter: drop-shadow(0px 0px 2px whitesmoke);
+  }
+  /* BACK ARROW */
+  
+
+  /* DATA VISUALIZATION */
+.data .book {
+    background: radial-gradient(
+        ellipse at top,
+        rgba(50, 10, 87, 0.55),
+        rgba(0, 0, 0, 0.75)
+      ),
+      radial-gradient(ellipse at bottom, rgba(70, 70, 70, 0.5), transparent);
+    font-family: "Smooch Sans", sans-serif;
+    color: rgb(221, 206, 206);
+  }
+  /* END DATA VISUALIZATION */
+  
+  /* PHOTOGRAPHY */
+  .photo .book {
+    background: radial-gradient(
+        ellipse at top,
+        rgba(189, 147, 189, 0.55),
+        rgba(0, 0, 0, 0.85)
+      ),
+      radial-gradient(ellipse at bottom, rgba(185, 154, 154, 0.5), transparent);
+    font-family: "Nothing You Could Do", cursive;
+    color: #212121;
+  }
+  /* END PHOTOGRAPHY */
+  
+  /* LANDSCAPE DESIGN */
+  .landscape .book {
+    background: radial-gradient(
+        ellipse at top,
+        rgba(2, 95, 18, 0.55),
+        rgba(0, 0, 0, 0.75)
+      ),
+      radial-gradient(ellipse at bottom, rgba(70, 70, 70, 0.5), transparent);
+    font-family: "Fredericka the Great", cursive;
+    color: rgb(247, 229, 192);
+  }
+  /* END LANDSCAPE DESIGN */
+  
+  /* CREATIVE WRITING */
+  .writing .book {
+    background: radial-gradient(
+        ellipse at top,
+        rgba(94, 15, 6, 0.76),
+        rgba(0, 0, 0, 0.75)
+      ),
+      radial-gradient(ellipse at bottom, rgba(70, 70, 70, 0.5), transparent);
+    font-family: "Lora", serif;
+    color: rgb(216, 191, 191);
+  }
+  /* END CREATIVE WRITING */
+  
+  /* WEB DESIGN */
+  .web .book {
+    background: radial-gradient(
+        ellipse at top,
+        rgba(255, 255, 255, 0.63),
+        rgba(0, 0, 0, 0.75)
+      ),
+      radial-gradient(ellipse at bottom, rgba(70, 70, 70, 0.5), transparent);
+    font-family: "Inconsolata", monospace;
+    color: #333;
+  }
+  /* END WEB DESIGN */
+
+  .open-button {
+    z-index: 100;
+  }
+
+  .author {
+    margin-left: 11px ;
+    line-height: 10%;
+  }
+  .title{
+    margin-left: 45px;
+    line-height: 1%;
+  }
