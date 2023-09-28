@@ -11,8 +11,9 @@ Welcome to the Bookshelf app! This project is built using React and leveraging I
   5. Start the app : npm start 
   6. Connect with extension wallet
   7. If the shelf does not load, reload the page
-  8. Browse books 
-Be aware that you need to have a Data Nft of a book shelf (Hackathon Nested Novel of Aetheria).
+  8. Browse books
+
+! Be aware that you need to have a Data Nft of a book shelf (Hackathon Nested Novel of Aetheria).
  You can procure one from https://test.datadex.itheum.io/datanfts/marketplace/DATANFTFT4-3ba099-0221 
 
 ![image](https://github.com/Itheum/demos-virtual-book-shelf/assets/72063093/60dd2cc4-3ff4-4450-931a-c73201599a68)
