@@ -5,7 +5,6 @@ import { Book } from "../Book/Book";
 
 import { useGetLoginInfo } from "@multiversx/sdk-dapp/hooks";
 import { DataNft  } from "@itheum/sdk-mx-data-nft";
-import MyLoginComponent from '../login/MyLoginComponent';
 import {logout} from '@multiversx/sdk-dapp/utils/logout';
   
 export const BookShelf = () => {
@@ -32,14 +31,14 @@ export const BookShelf = () => {
         if(_dataNftToOpen){
         try {
             let res ;
-            if (!(tokenLogin && tokenLogin.nativeAuthToken)) {
+            if (!(tokenLogin && tokenLogin?.nativeAuthToken)) {
               throw Error("No nativeAuth token");
             }
              const arg = {
               mvxNativeAuthOrigins: [window.location.origin],
               mvxNativeAuthMaxExpirySeconds: 3000,
               fwdHeaderMapLookup: {
-                "authorization": `Bearer ${tokenLogin.nativeAuthToken}`,
+                "authorization": `Bearer ${tokenLogin?.nativeAuthToken}`,
               },
               stream: true,
             };
@@ -73,29 +72,22 @@ export const BookShelf = () => {
 
     return(
       <>
-        {!tokenLogin ? 
-        (
-          <MyLoginComponent/> 
-        ) : 
-        (
-          <button className="logout-button" onClick={ () => logout(window.location.origin)}> Logout</button>
-        )}
-        <body>
+        <button className="logout-button" onClick={() => logout(window.location.origin)}> Logout</button>
               <div id='shelf'>
                 {books && books.map((book) => (
                     <Book
-                    key={book.idx}
-                    dataNftToOpen={dataNftToOpen}
-                    nativeAuthToken={tokenLogin.nativeAuthToken}
-                    index={book.idx}
-                    title={book.Title}
-                    image={book.artwork}
-                    category={book.category}
-                    creator={dataStream.creator} 
+                      key={book.idx}
+                      dataNftToOpen={dataNftToOpen}
+                      nativeAuthToken={tokenLogin?.nativeAuthToken}
+                      index={book.idx}
+                      title={book.Title}
+                      image={book.artwork}
+                      category={book.category}
+                      creator={dataStream.creator} 
                     />
                 ))}
             </div>
-        </body>
+         
         </> 
     );
 }
